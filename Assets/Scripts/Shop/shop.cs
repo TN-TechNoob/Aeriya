@@ -1,11 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class shop : MonoBehaviour
 {
    public GameObject ShopPanel;
     private bool nearby=false;
+
+    public Text count;
+    private int counter;
+
+    public Image stamina;
+    public Image source;
+    public Image death;
 
     //public GameObject coinprefab;
 
@@ -31,6 +39,7 @@ public class shop : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             nearby = false;
+            
         }
     }
     // Update is called once per frame
@@ -50,6 +59,8 @@ public class shop : MonoBehaviour
     }
     public void Buy_Restoration_Potion()
     {
+        counter++;
+        count.text = counter.ToString();
         int cost = 50;
         if (coin >= cost)
         {
@@ -72,6 +83,7 @@ public class shop : MonoBehaviour
     }
     public void Buy_stamina_charm()
     {
+        stamina.color = Color.white;
         int cost = 300;
         if (coin >= cost)
         {
@@ -94,6 +106,7 @@ public class shop : MonoBehaviour
     }
     public void Buy_Source_Of_Life()
     {
+        source.color = Color.white;
         int cost = 300;
         if (coin >= cost)
         {
@@ -117,6 +130,7 @@ public class shop : MonoBehaviour
     }
     public void Buy_Death_Free_Gold_Medal()
     {
+        death.color = Color.white;
         int cost = 500;
         if (coin >= cost)
         {
