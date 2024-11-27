@@ -19,14 +19,14 @@ public class shop : MonoBehaviour
             ShopPanel.SetActive(false);
         }
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             nearby = true;
         }
     }
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
@@ -128,6 +128,11 @@ public class shop : MonoBehaviour
         {
             Debug.Log("ª÷¹ô¤£¨¬¡I");
         }
+    }
+
+    public void ExitShop() 
+    {
+        ShopPanel.SetActive(false);
     }
 
 }
