@@ -433,9 +433,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1832207627}
-        m_TargetAssemblyTypeName: Mainmenu, Assembly-CSharp
-        m_MethodName: PlayGame
+      - m_Target: {fileID: 1863811110}
+        m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
+        m_MethodName: LoadNextlevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1685,7 +1685,6 @@ GameObject:
   - component: {fileID: 1832207624}
   - component: {fileID: 1832207626}
   - component: {fileID: 1832207625}
-  - component: {fileID: 1832207627}
   - component: {fileID: 1832207628}
   m_Layer: 5
   m_Name: Mainmenu
@@ -1755,20 +1754,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1832207623}
   m_CullTransparentMesh: 1
---- !u!114 &1832207627
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1832207623}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1dc54de0a5586045b5f42d53ad11609, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  transition: {fileID: 0}
-  transitionTime: 1
 --- !u!114 &1832207628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1795,6 +1780,17 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1863811110 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8723829089704314405, guid: 400515d732f012e44bd0f3928a59cbe2, type: 3}
+  m_PrefabInstance: {fileID: 6060304533476138210}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1dc54de0a5586045b5f42d53ad11609, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2008997371
 GameObject:
   m_ObjectHideFlags: 0
@@ -2004,6 +2000,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1044229369656916450, guid: 400515d732f012e44bd0f3928a59cbe2, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3807095794690594130, guid: 400515d732f012e44bd0f3928a59cbe2, type: 3}
       propertyPath: m_RootOrder
       value: 2
