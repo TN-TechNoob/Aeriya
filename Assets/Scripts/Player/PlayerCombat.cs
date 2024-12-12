@@ -9,7 +9,7 @@ public class PlayerCombat : MonoBehaviour
     public Transform activeWeapon;
     private Animator animator;
     private PolygonCollider2D polygonCollider2D;
-    
+
 
     void Awake()
     {
@@ -30,13 +30,14 @@ public class PlayerCombat : MonoBehaviour
     }
 
 
-    private void WeaponFlip() {
+    private void WeaponFlip()
+    {
 
-        if (playerCtrl.lastMoveDir.x < 0) 
+        if (playerCtrl.lastMoveDir.x < 0)
         {
             activeWeapon.transform.rotation = Quaternion.Euler(0, -180, 0);
-        } 
-        else 
+        }
+        else
         {
             activeWeapon.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
@@ -49,7 +50,7 @@ public class PlayerCombat : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Enemy") 
+        if (other.gameObject.tag == "Enemy")
         {
             other.GetComponent<Enemy>().TakeDamage(10);
             Debug.Log("hit!");

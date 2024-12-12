@@ -5,6 +5,10 @@ using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
+    public GameObject cross;
+    public float spawnAreaX = 12f;
+    public float spawnAreaY = 20f;
+    public int numberOfObjects = 10;
     public Animator animator;
     public Transform attackPoint;
     public GameObject player;
@@ -22,6 +26,16 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
+        for (int i = 0; i < numberOfObjects; i++)
+        {
+            // 產生隨機座標
+            float randomX = Random.Range(-spawnAreaX, spawnAreaX);
+            float randomY = Random.Range(20f, 30f);
+            Vector3 spawnPosition = new Vector3(randomX, randomY, 0f);
+
+            // 實例化物件
+            Instantiate(cross, spawnPosition, Quaternion.identity);
+        }
         currentHealth = maxHealth;
         rb = GetComponent<Rigidbody>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -35,14 +49,13 @@ public class Enemy : MonoBehaviour
             Attack();
             nextAttackTime = Time.time + attackCooldown;
         }
-
         spriteRenderer.flipX = player.transform.position.x < transform.position.x;
 
     }
 
     void FixedUpdate()
     {
-        if (Vector2.Distance (player.transform.position, transform.position) < 1000f )
+        if (Vector2.Distance(player.transform.position, transform.position) < 1000f)
         {
             Vector2 direction = player.transform.position - transform.position;
 
@@ -62,6 +75,11 @@ public class Enemy : MonoBehaviour
         Debug.Log("Test");
     }
 
+    void Meteorite()
+    {
+
+    }
+
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
@@ -71,7 +89,7 @@ public class Enemy : MonoBehaviour
             animator.SetTrigger("IsDead");
         }
     }
-    
+
     public void Die()
     {
         Destroy(gameObject);
