@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
-public class ResolutionManager : MonoBehaviour
+public class Option : MonoBehaviour
 {
     [SerializeField] private TMP_Dropdown resolutionDropdown;
+
+    public Toggle fullscreenTog, vsyncTog;
 
     private Resolution[] resolutions;
     private List<Resolution> filteredResolutions;
@@ -15,6 +18,17 @@ public class ResolutionManager : MonoBehaviour
 
     void Start()
     {
+        fullscreenTog.isOn = Screen.fullScreen;
+
+        if (QualitySettings.vSyncCount == 0)
+        {
+            vsyncTog.isOn = false;
+        }
+        else
+        {
+            vsyncTog.isOn = true;
+        }
+
         resolutions = Screen.resolutions;
         filteredResolutions = new List<Resolution>();
 
@@ -48,6 +62,20 @@ public class ResolutionManager : MonoBehaviour
     public void SetResolution(int resolutionIndex)
     {
         Resolution resolution = filteredResolutions[resolutionIndex];
-        Screen.SetResolution(resolution.width, resolution.height, true);
+        Screen.SetResolution(resolution.width, resolution.height, fullscreenTog.isOn);
+    }
+
+    public void ApplySetting()
+    {
+        Screen.fullScreen = fullscreenTog.isOn;
+        
+        if (vsyncTog.isOn)
+        {
+            QualitySettings.vSyncCount = 1;
+        }
+        else
+        {
+            QualitySettings.vSyncCount = 0;
+        }
     }
 }
