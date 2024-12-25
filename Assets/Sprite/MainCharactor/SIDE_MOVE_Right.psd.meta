@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4f0caca2591e00949871be20d1f27f76
+guid: 998cb5c58cd34b64b800729207ed4439
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -93,7 +93,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fornt_run finish_0
+      name: SIDE_MOVE_Right_0
       rect:
         serializedVersion: 2
         x: 0
@@ -107,14 +107,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5897736ea8a77054fbfa58295074a7aa
-      internalID: -2085393739
+      spriteID: f04415f57ac52d74a953aca377ca3829
+      internalID: 1761187521
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fornt_run finish_1
+      name: SIDE_MOVE_Right_1
       rect:
         serializedVersion: 2
         x: 1240
@@ -128,14 +128,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b0ff652a680122408f8313845551ecb
-      internalID: 760996817
+      spriteID: 4fc0529fa30a79f49b07a81774c881cc
+      internalID: -726238284
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fornt_run finish_2
+      name: SIDE_MOVE_Right_2
       rect:
         serializedVersion: 2
         x: 2480
@@ -149,14 +149,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0033068e3bab53648b5ff0a716e19e65
-      internalID: 300968322
+      spriteID: ac5aa42518448b6438cb428dfc553993
+      internalID: -1166975909
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fornt_run finish_3
+      name: SIDE_MOVE_Right_3
       rect:
         serializedVersion: 2
         x: 3720
@@ -170,8 +170,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2455fc8d304d0eb49a4308964b847864
-      internalID: 1306043144
+      spriteID: 2c05fd74be48ae54ab5e9ef5fc1ff02c
+      internalID: -694874668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SIDE_MOVE_Right_4
+      rect:
+        serializedVersion: 2
+        x: 4960
+        y: 0
+        width: 1240
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.03}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 496877f198d036940ac4ac187bbfd9c8
+      internalID: -1681937982
       vertices: []
       indices: 
       edges: []
@@ -187,13 +208,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      fornt_run finish_0: -2085393739
-      fornt_run finish_1: 760996817
-      fornt_run finish_2: 300968322
-      fornt_run finish_3: 1306043144
+      SIDE_MOVE_Right_0: 1761187521
+      SIDE_MOVE_Right_1: -726238284
+      SIDE_MOVE_Right_2: -1166975909
+      SIDE_MOVE_Right_3: -694874668
+      SIDE_MOVE_Right_4: -1681937982
   spritePackingTag: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
+  pSDShowRemoveMatteOption: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

@@ -290,7 +290,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.19972725, y: -8.968267, z: -10}
+  m_LocalPosition: {x: -0.19972725, y: -8.968615, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -873,6 +873,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 171482291465353587, guid: 676bfc3c73dadbe4fbb071aa59a0f544, type: 3}
+      propertyPath: m_Size.x
+      value: 2.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 171482291465353587, guid: 676bfc3c73dadbe4fbb071aa59a0f544, type: 3}
+      propertyPath: m_Size.y
+      value: 2.051328
+      objectReference: {fileID: 0}
+    - target: {fileID: 171482291465353587, guid: 676bfc3c73dadbe4fbb071aa59a0f544, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 862858720, guid: 3e0b45c529e61d844bd97beb3b66746a, type: 3}
+    - target: {fileID: 171482291465353587, guid: 676bfc3c73dadbe4fbb071aa59a0f544, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 171482291465353589, guid: 676bfc3c73dadbe4fbb071aa59a0f544, type: 3}
       propertyPath: m_Name
       value: Player
@@ -892,7 +908,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 634928371669396109, guid: d7b607206d3b39049957880e6e55ae78, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 634928371669396110, guid: d7b607206d3b39049957880e6e55ae78, type: 3}
       propertyPath: m_RootOrder
