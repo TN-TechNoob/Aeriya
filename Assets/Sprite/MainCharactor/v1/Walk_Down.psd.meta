@@ -262,13 +262,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Walk_Down_5: -943018785
+      Walk_Down_0: -750369080
       Walk_Down_1: -1211426249
+      Walk_Down_2: -157943313
       Walk_Down_3: -166861555
       Walk_Down_4: -750956041
-      Walk_Down_0: -750369080
+      Walk_Down_5: -943018785
       Walk_Down_6: 468568490
-      Walk_Down_2: -157943313
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 1

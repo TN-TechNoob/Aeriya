@@ -262,13 +262,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Idle_Up_Left_4: 1389097967
       Idle_Up_Left_0: 517931849
       Idle_Up_Left_1: 1074871993
-      Idle_Up_Left_5: -823252001
       Idle_Up_Left_2: -2056624286
-      Idle_Up_Left_6: 1083680316
       Idle_Up_Left_3: 1274283324
+      Idle_Up_Left_4: 1389097967
+      Idle_Up_Left_5: -823252001
+      Idle_Up_Left_6: 1083680316
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 1

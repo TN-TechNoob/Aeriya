@@ -241,11 +241,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Walk_Right_0: 1626119758
+      Walk_Right_1: -1990586645
       Walk_Right_2: -538676477
       Walk_Right_3: 947038491
-      Walk_Right_1: -1990586645
       Walk_Right_4: -399895655
-      Walk_Right_0: 1626119758
       Walk_Right_5: -939773515
   spritePackingTag: 
   pSDRemoveMatte: 0

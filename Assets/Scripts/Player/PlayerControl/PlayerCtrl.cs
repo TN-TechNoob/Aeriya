@@ -9,6 +9,7 @@ public class PlayerCtrl : MonoBehaviour
     {
         Normal,
         Dashing,
+        Attacking,
         Shield
     }
 
@@ -43,25 +44,30 @@ public class PlayerCtrl : MonoBehaviour
         switch (state)
         {
             case State.Normal:
-        
+
                 PlayerInput();
 
                 // * 取得角色翻滾Input
                 if (Input.GetKeyDown(KeyCode.LeftShift))
-                {   
+                {
                     dashDir = lastMoveDir;
                     dashSpeed = 10f;
                     state = State.Dashing;
                     // isDashButtonDown = true;
                 }
 
-                if (Input.GetMouseButtonDown(1))       
+                if (Input.GetMouseButtonDown(1))
                 {
                     shieldCoolDown = 0.5f;
                     state = State.Shield;
                 }
 
-            break;
+                if (Input.GetMouseButtonDown(0))
+                {
+
+                }
+
+                break;
 
 
             case State.Dashing:
@@ -78,16 +84,22 @@ public class PlayerCtrl : MonoBehaviour
                     animator.SetBool("IsDashing", false);
                 }
 
-            break;
+                break;
+
+            case State.Attacking:
+
+
+
+                break;
 
             case State.Shield:
 
-                
+
                 //float shieldCoolDownMuiltiplier = 1f;
                 capsuleCollider2D.enabled = false;
-                animator.SetBool("IsShielding", true);
+                animator.SetTrigger("IsShielding");
                 shieldCoolDown -= Time.deltaTime;
-                
+
                 if (shieldCoolDown <= 0)
                 {
                     capsuleCollider2D.enabled = true;
@@ -96,30 +108,30 @@ public class PlayerCtrl : MonoBehaviour
 
                 }
 
-            break;
+                break;
         }
     }
-    
+
 
     private void FixedUpdate()
     {
-        switch (state) 
+        switch (state)
         {
-            case State.Normal :
+            case State.Normal:
                 Move();
-            break;
-            case State.Dashing :
+                break;
+            case State.Dashing:
                 Dash();
-            break;
+                break;
         }
     }
-    
+
     private void PlayerInput()
     {
         movement = playerControls.Movement.Move.ReadValue<Vector2>();
         moveDir = new Vector2(movement.x, movement.y).normalized;
         animator.SetFloat("Speed", movement.sqrMagnitude);
-        
+
         if (movement.x != 0 || movement.y != 0)
         {
             lastMoveDir = moveDir;
