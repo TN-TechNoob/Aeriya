@@ -15,6 +15,7 @@ public class PlayerCtrl : MonoBehaviour
 
     public CapsuleCollider2D capsuleCollider2D;
     private PlayerControls playerControls;
+    private PlayerCombat_V2 playerCombat_V2;
     private Rigidbody2D rb;
     public float moveSpeed, dashSpeed, shieldCoolDown;
     public Vector2 movement, lastMoveDir;
@@ -24,6 +25,7 @@ public class PlayerCtrl : MonoBehaviour
 
     private void Awake()
     {
+        playerCombat_V2 = GetComponent<PlayerCombat_V2>();
         playerControls = new PlayerControls();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -64,7 +66,7 @@ public class PlayerCtrl : MonoBehaviour
 
                 if (Input.GetMouseButtonDown(0))
                 {
-
+                    state = State.Attacking;
                 }
 
                 break;
@@ -88,12 +90,12 @@ public class PlayerCtrl : MonoBehaviour
 
             case State.Attacking:
 
-
+                playerCombat_V2.Attack();
+                state = State.Normal;
 
                 break;
 
             case State.Shield:
-
 
                 //float shieldCoolDownMuiltiplier = 1f;
                 capsuleCollider2D.enabled = false;
