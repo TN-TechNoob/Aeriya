@@ -18,6 +18,7 @@ public class PlayerCtrl : MonoBehaviour
     private PlayerCombat_V2 playerCombat_V2;
     private Rigidbody2D rb;
     public float moveSpeed, dashSpeed, shieldCoolDown;
+    public bool isAttacking;
     public Vector2 movement, lastMoveDir;
     private Vector2 moveDir, dashDir;
     private State state;
@@ -50,7 +51,7 @@ public class PlayerCtrl : MonoBehaviour
                 PlayerInput();
 
                 // * 取得角色翻滾Input
-                if (Input.GetKeyDown(KeyCode.LeftShift))
+                if (Input.GetKeyDown(KeyCode.LeftShift) && !isAttacking)
                 {
                     dashDir = lastMoveDir;
                     dashSpeed = 10f;
@@ -62,11 +63,6 @@ public class PlayerCtrl : MonoBehaviour
                 {
                     shieldCoolDown = 0.5f;
                     state = State.Shield;
-                }
-
-                if (Input.GetMouseButtonDown(0))
-                {
-                    state = State.Attacking;
                 }
 
                 break;
@@ -85,13 +81,6 @@ public class PlayerCtrl : MonoBehaviour
                     state = State.Normal;
                     animator.SetBool("IsDashing", false);
                 }
-
-                break;
-
-            case State.Attacking:
-
-                playerCombat_V2.Attack();
-                state = State.Normal;
 
                 break;
 
