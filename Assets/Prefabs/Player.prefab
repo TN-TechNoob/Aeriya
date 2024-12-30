@@ -167,6 +167,7 @@ MonoBehaviour:
   moveSpeed: 5
   dashSpeed: 4
   shieldCoolDown: 0.5
+  isAttacking: 0
   movement: {x: 0, y: 0}
   lastMoveDir: {x: 0, y: 0}
   animator: {fileID: 171482291465353486}
@@ -182,11 +183,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 302b018ab1dbd4641b98afe384eced65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackPoint: {fileID: 6321342279112495021}
-  attackRange: 0.5
   enemyLayers:
     serializedVersion: 2
     m_Bits: 64
+  attackPoint: {fileID: 6321342279112495021}
+  attackRange: 0.5
+  attackDamage: 20
+  attackRate: 1.2
 --- !u!114 &2047903114815317659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,8 +202,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6794979397ee00f4e8b1d8d5e2a85861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 171482291465353486}
   maxHealth: 100
-  currentHealth: 0
 --- !u!1 &171482291628256201
 GameObject:
   m_ObjectHideFlags: 0
