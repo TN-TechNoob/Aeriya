@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int maxHealth, currentHealth;
+    public Animator animator;
+    public int maxHealth = 100;
+    int currentHealth;
 
     void Start()
     {
@@ -15,6 +17,8 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+
+        animator.SetTrigger("Hurt");
         if (currentHealth <= 0)
         {
             Die();
@@ -23,6 +27,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Die()
     {
-        Destroy(gameObject);
+        // play die animation
+        // Destroy(gameObject);
     }
 }
