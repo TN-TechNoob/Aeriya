@@ -11,6 +11,7 @@ public class HealthBar : MonoBehaviour
     public void SetMaxHealth(int health)
     {
         slider.maxValue = health;
+        slider.value = health;
     }
 
     public void Sethealth(int health)
