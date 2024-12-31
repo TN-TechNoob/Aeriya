@@ -8,10 +8,7 @@ public class PlayerHealth : MonoBehaviour
     public int maxHealth = 100;
     public int maxStrength = 100;
     int currentHealth;
-<<<<<<< Updated upstream
-=======
     public HealthBar_V2 healthbar;
->>>>>>> Stashed changes
     int currentStrength;
 
     void Start()
