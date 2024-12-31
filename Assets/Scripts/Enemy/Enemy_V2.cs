@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class Enemy_V2 : MonoBehaviour
 {
+    private Vector2 direction;
     public Animator animator;
+    public SpriteRenderer sprite;
     public GameObject player;
     public float speed;
     private float distance;
@@ -21,6 +25,7 @@ public class Enemy_V2 : MonoBehaviour
 
     void Update()
     {
+        Flip();
         CalculateDistance();
 
         if (distance > 2 && !isAttacking)
@@ -33,6 +38,18 @@ public class Enemy_V2 : MonoBehaviour
             {
                 animator.SetTrigger("Attack");
             }
+        }
+    }
+
+    void Flip()
+    {
+        if (direction.x > 0)
+        {
+            sprite.flipX = true;
+        }
+        else
+        {
+            sprite.flipX = false;
         }
     }
 
@@ -69,7 +86,7 @@ public class Enemy_V2 : MonoBehaviour
     void CalculateDistance()
     {
         distance = Vector2.Distance(transform.position, player.transform.position);
-        Vector2 direction = player.transform.position - transform.position;
+        direction = player.transform.position - transform.position;
         direction.Normalize();
     }
 
