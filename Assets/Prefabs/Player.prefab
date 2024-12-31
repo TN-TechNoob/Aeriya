@@ -187,7 +187,7 @@ MonoBehaviour:
     m_Bits: 64
   attackPoint: {fileID: 6321342279112495021}
   attackRange: 0.5
-  attackDamage: 20
+  attackDamage: 5
   attackRate: 1.2
 --- !u!114 &2047903114815317659
 MonoBehaviour:
@@ -201,6 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6794979397ee00f4e8b1d8d5e2a85861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelLoader: {fileID: 0}
   animator: {fileID: 171482291465353486}
   maxHealth: 100
   maxStrength: 100
