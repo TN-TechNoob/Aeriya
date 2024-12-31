@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class package : MonoBehaviour
 {
     public GameObject packagePanel;
+    public PlayerHealth playerHealth;
 
     // Start is called before the first frame update
     void Start()

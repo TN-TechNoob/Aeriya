@@ -1,25 +1,32 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class shop : MonoBehaviour
 {
    public GameObject ShopPanel;
     private bool nearby=false;
 
-    public Text count;
+    //public Text count;
     private int counter;
-
+    public Text potionCountText;
     public Image stamina;
     public Image source;
     public Image death;
+    int potionCount = 0;
 
-    [SerializeField] public PlayerHealth playerHealth;
+    private playerdata playerdata;
+
+    private PlayerHealth playerHealth;
 
 
     //public GameObject coinprefab;
-
+    void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
     public int coin = 1000; //FOR TEST
 
     // Start is called before the first frame update
@@ -29,6 +36,19 @@ public class shop : MonoBehaviour
         {
             ShopPanel.SetActive(false);
         }
+        playerdata = FindObjectOfType<playerdata>();
+        playerHealth = FindObjectOfType<PlayerHealth>();
+        if (playerdata == null)
+        {
+            Debug.LogError("playerdata æœªæ‰¾åˆ°ï¼");
+        }
+        if (playerHealth == null)
+        {
+            Debug.LogError("PlayerHealth æœªæ‰¾åˆ°ï¼");
+        }
+
+        potionCount = playerdata.potionCount; 
+        UpdateUI();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -52,38 +72,63 @@ public class shop : MonoBehaviour
         {
             ShopPanel.SetActive(true);
         }
+
+        if (playerHealth != null && Input.GetKeyDown(KeyCode.J) && !EventSystem.current.IsPointerOverGameObject())
+        {
+            Debug.Log("æŒ‰ä¸‹ J éµï¼Œè§¸ç™¼è—¥æ°´ä½¿ç”¨");
+            Restoration_Potion();
+        }
+    }
+
+    private void UpdateUI()
+    {
+    
+        if (potionCountText != null)
+        {
+            potionCountText.text = potionCount.ToString();
+        }
+
     }
     public void Restoration_Potion()
     {
-        if (playerHealth != null)
+        if (potionCount > 0 && playerHealth != null)
         {
-            playerHealth.AddHealth(6);
+            potionCount--; 
+            playerHealth.AddHealth(6);  
+            playerdata.potionCount = potionCount; 
+            UpdateUI();
+        }
+        else
+        {
+            Debug.Log("æ²’æœ‰è¶³å¤ çš„è—¥æ°´ï¼");
         }
     }
     public void Buy_Restoration_Potion()
     {
-        counter++;
-        count.text = counter.ToString();
+       
+
         int cost = 50;
         if (coin >= cost)
         {
             coin -= cost;
-            Restoration_Potion(); 
-            Debug.Log("ÁÊ¶R¦¨¥\¡I");
+            potionCount++;
+            playerdata.potionCount = potionCount;
+            UpdateUI();
+            Debug.Log("è³¼è²·æˆåŠŸï¼");
         }
         else
         {
-            Debug.Log("ª÷¹ô¤£¨¬¡I");
+            Debug.Log("é‡‘å¹£ä¸è¶³ï¼");
         }
     }
-    private IEnumerator Stamina_Charm()
-    {
-        while (true)                    
-        {
-            yield return new WaitForSeconds(5);
-            playerHealth.AddStrength(2); 
-        }
-    }
+    //private IEnumerator Stamina_Charm()
+    //{
+      //  while (true)                    
+       // {
+          //  yield return new WaitForSeconds(5);
+           // playerHealth.AddStrength(2); 
+       // }
+   // }
     public void Buy_stamina_charm()
     {
         stamina.color = Color.white;
@@ -91,12 +136,12 @@ public class shop : MonoBehaviour
         if (coin >= cost)
         {
             coin -= cost;
-            Stamina_Charm();
-            Debug.Log("ÁÊ¶R¦¨¥\¡I");
+            //Stamina_Charm();
+            Debug.Log("è³¼è²·æˆåŠŸï¼");
         }
         else
         {
-            Debug.Log("ª÷¹ô¤£¨¬¡I");
+            Debug.Log("é‡‘å¹£ä¸è¶³ï¼");
         }
     }
     private IEnumerator Source_Of_Life()
@@ -115,11 +160,11 @@ public class shop : MonoBehaviour
         {
             coin -= cost;
             Source_Of_Life();
-            Debug.Log("ÁÊ¶R¦¨¥\¡I");
+            Debug.Log("è³¼è²·æˆåŠŸï¼");
         }
         else
         {
-            Debug.Log("ª÷¹ô¤£¨¬¡I");
+            Debug.Log("é‡‘å¹£ä¸è¶³ï¼");
         }
 
     }
@@ -140,11 +185,11 @@ public class shop : MonoBehaviour
         {
             coin -= cost;
             Death_Free_Gold_Medal();
-            Debug.Log("ÁÊ¶R¦¨¥\¡I");
+            Debug.Log("è³¼è²·æˆåŠŸï¼");
         }
         else
         {
-            Debug.Log("ª÷¹ô¤£¨¬¡I");
+            Debug.Log("é‡‘å¹£ä¸è¶³ï¼");
         }
     }
 
