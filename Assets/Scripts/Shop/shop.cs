@@ -15,6 +15,9 @@ public class shop : MonoBehaviour
     public Image source;
     public Image death;
 
+    [SerializeField] public PlayerHealth playerHealth;
+
+
     //public GameObject coinprefab;
 
     public int coin = 1000; //FOR TEST
@@ -52,9 +55,9 @@ public class shop : MonoBehaviour
     }
     public void Restoration_Potion()
     {
-        // if (playerHealth != null)
+        if (playerHealth != null)
         {
-            // playerHealth.AddHealth(6);
+            playerHealth.AddHealth(6);
         }
     }
     public void Buy_Restoration_Potion()
@@ -78,7 +81,7 @@ public class shop : MonoBehaviour
         while (true)                    
         {
             yield return new WaitForSeconds(5);
-            //playerHealth.AddStrength(2); 
+            playerHealth.AddStrength(2); 
         }
     }
     public void Buy_stamina_charm()
@@ -101,7 +104,7 @@ public class shop : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(10); 
-            //playerHealth.AddHealth(1);
+            playerHealth.AddHealth(1);
         }
     }
     public void Buy_Source_Of_Life()
@@ -122,9 +125,10 @@ public class shop : MonoBehaviour
     }
     public void Death_Free_Gold_Medal()
     {
-        //  if (playerHealth != null && playerHealth.isDead)
+         if (playerHealth != null && playerHealth.isDead)
         {
-            // playerHealth.Revive();  要寫一個總血量的1/3
+           playerHealth.Revive();
+          
 
         }
     }
