@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public LevelLoader levelLoader;
     public Animator animator;
     public int maxHealth = 100;
     public int maxStrength = 100;
@@ -40,7 +41,7 @@ public class PlayerHealth : MonoBehaviour
            
         }
     }
-    
+
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
@@ -56,6 +57,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Die()
     {
+        levelLoader.LoadStartMenu();
         // play die animation
         // Destroy(gameObject);
     }
