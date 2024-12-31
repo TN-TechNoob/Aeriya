@@ -204,6 +204,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 171482291465353486}
   maxHealth: 100
+  maxStrength: 100
   healthbar: {fileID: 0}
 --- !u!1 &171482291628256201
 GameObject:
