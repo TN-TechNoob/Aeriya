@@ -40,32 +40,7 @@ public class PlayerHealth : MonoBehaviour
            
         }
     }
-
-    public void AddHealth(int amount)
-    {
-        currentHealth += amount;
-
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-    }
-    public void AddStrength(int amount)
-    {
-        currentStrength += amount;
-
-        currentStrength = Mathf.Clamp(currentStrength, 0, maxStrength);
-    }
-
-    public bool isDead => currentHealth <= 0; 
-
-    public void Revive()
-    {
-        if (isDead)
-        {
-            currentHealth = maxHealth / 3; 
-           
-        }
-    }
-
-    // Start is called before the first frame update
+    
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
