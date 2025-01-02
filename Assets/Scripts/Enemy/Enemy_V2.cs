@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
-using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class Enemy_V2 : MonoBehaviour
@@ -16,11 +14,13 @@ public class Enemy_V2 : MonoBehaviour
     public int attackDamage = 20;
     public int maxHealth = 100;
     int currentHealth;
+    public HealthBar_V2 healthbar;
 
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
+        healthbar.SetMaxHealth(maxHealth);
     }
 
     void Update()
@@ -64,6 +64,8 @@ public class Enemy_V2 : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+
+        healthbar.Sethealth(currentHealth);
 
         animator.SetTrigger("Hurt");
 
