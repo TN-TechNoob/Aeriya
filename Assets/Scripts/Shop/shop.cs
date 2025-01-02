@@ -25,7 +25,7 @@ public class shop : MonoBehaviour
     //public GameObject coinprefab;
     void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+       // DontDestroyOnLoad(gameObject);
     }
     public int coin = 1000; //FOR TEST
 
