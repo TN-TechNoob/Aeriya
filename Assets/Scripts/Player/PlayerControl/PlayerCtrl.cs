@@ -16,7 +16,6 @@ public class PlayerCtrl : MonoBehaviour
     private Rigidbody2D rb;
     public float moveSpeed, dashSpeed;
     public bool isAttacking, isShielding;
-    public bool perfectReduce;
     public float perfectReduceTime;
     public Vector2 movement, lastMoveDir;
     private Vector2 moveDir, dashDir;
@@ -60,7 +59,6 @@ public class PlayerCtrl : MonoBehaviour
                 if (Input.GetMouseButtonDown(1))
                 {
                     perfectReduceTime = 2f;
-                    perfectReduce = true;
                     isShielding = true;
                     animator.SetBool("IsShielding", true);
                     state = State.Shield;
@@ -87,10 +85,8 @@ public class PlayerCtrl : MonoBehaviour
 
             case State.Shield:
 
-                Debug.Log("Right click press");
                 if (Input.GetMouseButtonUp(1))
                 {
-                    perfectReduce = false;
                     isShielding = false;
                     animator.SetBool("IsShielding", false);
                     state = State.Normal;
@@ -102,7 +98,6 @@ public class PlayerCtrl : MonoBehaviour
                 }
                 else
                 {
-                    perfectReduce = false;
                     perfectReduceTime = 0f;
                 }
                 
