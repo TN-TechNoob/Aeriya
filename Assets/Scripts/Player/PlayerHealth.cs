@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public PlayerCtrl playerCtrl;
     public LevelLoader levelLoader;
     public Animator animator;
     public int maxHealth = 100;
@@ -11,6 +12,7 @@ public class PlayerHealth : MonoBehaviour
     int currentHealth;
     public HealthBar_V2 healthbar;
     int currentStrength;
+    public float damageReduce;
 
     void Start()
     {
@@ -42,13 +44,33 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
-        currentHealth -= damage;
+        if (playerCtrl.isShielding == true)
+        {
+            if (playerCtrl.perfectReduce == true)
+            {
+                damageReduce = 1f;
+                animator.SetTrigger("PerfectShield");
+                animator.SetBool("IsShielding", false);
+            }
+            else
+            {
+                damageReduce = 0.3f;
+                animator.SetTrigger("Hurt");
+            }
+        }
+        else
+        {
+            damageReduce = 0f;
+            animator.SetTrigger("Hurt");
+        }
+        currentHealth -= (int)Mathf.Round(damage * (1 - damageReduce));
+
+        Debug.Log(damageReduce);
 
         healthbar.Sethealth(currentHealth);
 
-        animator.SetTrigger("Hurt");
         if (currentHealth <= 0)
         {
             Die();

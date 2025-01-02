@@ -9,16 +9,15 @@ public class PlayerCtrl : MonoBehaviour
     {
         Normal,
         Dashing,
-        Attacking,
         Shield
     }
 
-    public CapsuleCollider2D capsuleCollider2D;
     private PlayerControls playerControls;
-    private PlayerCombat_V2 playerCombat_V2;
     private Rigidbody2D rb;
-    public float moveSpeed, dashSpeed, shieldCoolDown;
-    public bool isAttacking;
+    public float moveSpeed, dashSpeed;
+    public bool isAttacking, isShielding;
+    public bool perfectReduce;
+    public float perfectReduceTime;
     public Vector2 movement, lastMoveDir;
     private Vector2 moveDir, dashDir;
     private State state;
@@ -26,7 +25,6 @@ public class PlayerCtrl : MonoBehaviour
 
     private void Awake()
     {
-        playerCombat_V2 = GetComponent<PlayerCombat_V2>();
         playerControls = new PlayerControls();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -61,7 +59,10 @@ public class PlayerCtrl : MonoBehaviour
 
                 if (Input.GetMouseButtonDown(1))
                 {
-                    shieldCoolDown = 0.5f;
+                    perfectReduceTime = 2f;
+                    perfectReduce = true;
+                    isShielding = true;
+                    animator.SetBool("IsShielding", true);
                     state = State.Shield;
                 }
 
@@ -86,19 +87,25 @@ public class PlayerCtrl : MonoBehaviour
 
             case State.Shield:
 
-                //float shieldCoolDownMuiltiplier = 1f;
-                capsuleCollider2D.enabled = false;
-                animator.SetTrigger("IsShielding");
-                shieldCoolDown -= Time.deltaTime;
-
-                if (shieldCoolDown <= 0)
+                Debug.Log("Right click press");
+                if (Input.GetMouseButtonUp(1))
                 {
-                    capsuleCollider2D.enabled = true;
+                    perfectReduce = false;
+                    isShielding = false;
                     animator.SetBool("IsShielding", false);
                     state = State.Normal;
-
                 }
 
+                if (perfectReduceTime > 0)
+                {
+                    perfectReduceTime -= Time.deltaTime;
+                }
+                else
+                {
+                    perfectReduce = false;
+                    perfectReduceTime = 0f;
+                }
+                
                 break;
         }
     }
@@ -141,4 +148,13 @@ public class PlayerCtrl : MonoBehaviour
     {
         rb.MovePosition(rb.position + movement * (dashSpeed * Time.fixedDeltaTime));
     }
+
+    public void CheckMouse1Hold()
+    {
+        if (Input.GetMouseButton(1))
+        {
+            animator.SetBool("IsShielding", true);
+        }
+    }
 }
+
