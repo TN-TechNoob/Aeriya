@@ -77,8 +77,6 @@ public class Enemy_V2 : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("Enemy died");
-
         animator.SetBool("isDead", true);
         
         GetComponent<Collider2D>().enabled = false;
