@@ -68,7 +68,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (playerCtrl.isShielding == true)
         {
-            if (playerCtrl.perfectReduce == true)
+            if (playerCtrl.perfectReduceTime > 0)
             {
                 damageReduce = 1f;
                 animator.SetTrigger("PerfectShield");
