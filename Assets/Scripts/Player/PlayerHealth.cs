@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public GameObject[] buffindicators;
+    int buffTime = 0;
     public PlayerCtrl playerCtrl;
     public LevelLoader levelLoader;
     public Animator animator;
@@ -51,6 +53,11 @@ public class PlayerHealth : MonoBehaviour
             if (playerCtrl.perfectReduceTime > 0)
             {
                 damageReduce = 1f;
+                if (buffTime < 3)
+                {
+                    buffTime ++;
+                    BuffIndicatorEnable();
+                }
                 animator.SetTrigger("PerfectShield");
                 animator.SetBool("IsShielding", false);
             }
@@ -67,14 +74,21 @@ public class PlayerHealth : MonoBehaviour
         }
         currentHealth -= (int)Mathf.Round(damage * (1 - damageReduce));
 
-        Debug.Log(damageReduce);
-
         healthbar.Sethealth(currentHealth);
 
         if (currentHealth <= 0)
         {
             Die();
         }
+    }
+
+    void BuffIndicatorEnable()
+    {
+        if (buffTime == 1)
+        {
+            
+        }
+        Debug.Log(buffTime);
     }
 
     void Die()
