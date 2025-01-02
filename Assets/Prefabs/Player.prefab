@@ -162,11 +162,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 780eb1155c8278747bdb8cac192dfdf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  capsuleCollider2D: {fileID: 171482291465353487}
   moveSpeed: 5
   dashSpeed: 4
-  shieldCoolDown: 0.5
   isAttacking: 0
+  isShielding: 0
+  perfectReduce: 0
+  perfectReduceTime: 0
   movement: {x: 0, y: 0}
   lastMoveDir: {x: 0, y: 0}
   animator: {fileID: 171482291465353486}
@@ -201,11 +202,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6794979397ee00f4e8b1d8d5e2a85861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCtrl: {fileID: 0}
   levelLoader: {fileID: 0}
   animator: {fileID: 171482291465353486}
   maxHealth: 100
   maxStrength: 100
   healthbar: {fileID: 0}
+  damageReduce: 0
 --- !u!1 &4145836211631399161
 GameObject:
   m_ObjectHideFlags: 0

@@ -36,18 +36,21 @@ public class shop : MonoBehaviour
         {
             ShopPanel.SetActive(false);
         }
+
         playerdata = FindObjectOfType<playerdata>();
         playerHealth = FindObjectOfType<PlayerHealth>();
+
         if (playerdata == null)
         {
             Debug.LogError("playerdata 未找到！");
         }
+
         if (playerHealth == null)
         {
             Debug.LogError("PlayerHealth 未找到！");
         }
 
-        potionCount = playerdata.potionCount; 
+        potionCount = playerdata.potionCount;
         UpdateUI();
     }
     private void OnTriggerEnter2D(Collider2D other)
@@ -85,7 +88,7 @@ public class shop : MonoBehaviour
     
         if (potionCountText != null)
         {
-            potionCountText.text = potionCount.ToString();
+            potionCountText.text = playerdata.potionCount.ToString();
         }
 
     }
@@ -93,10 +96,12 @@ public class shop : MonoBehaviour
     {
         if (potionCount > 0 && playerHealth != null)
         {
-            potionCount--; 
-            playerHealth.AddHealth(6);  
-            playerdata.potionCount = potionCount; 
+            potionCount--;
+            playerHealth.AddHealth(6);
+            playerdata.potionCount = potionCount;
             UpdateUI();
+
+          
         }
         else
         {
@@ -134,7 +139,7 @@ public class shop : MonoBehaviour
         stamina.color = Color.white;
         int cost = 300;
         if (coin >= cost)
-        {
+        {   
             coin -= cost;
             //Stamina_Charm();
             Debug.Log("購買成功！");
