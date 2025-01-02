@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -16,40 +15,25 @@ public class PlayerHealth : MonoBehaviour
     public HealthBar_V2 healthbar;
     int currentStrength;
     public float damageReduce;
-    [SerializeField]
-    public Image frontHealthBar;
-    public Image backHealthBar;
 
     void Start()
     {
         currentHealth = maxHealth;
-        
-        UpdateHealthUI();
-
-    }
-    public void UpdateHealthUI()
-    {
-
-        float healthFraction = (float)currentHealth / maxHealth;
-        frontHealthBar.fillAmount = healthFraction;  // 更新前景
-        backHealthBar.fillAmount = 1f;               // 背景血條
+        healthbar.SetMaxHealth(maxHealth);
     }
 
     public void AddHealth(int amount)
     {
-        float amountToAdd = maxHealth * 0.2f;
-        currentHealth += (int)amountToAdd;
-       
-        UpdateHealthUI();
+        currentHealth += amount;
 
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
     }
-   // public void AddStrength(int amount)
-  //  {
-   //     currentStrength += amount;
+    public void AddStrength(int amount)
+    {
+        currentStrength += amount;
 
-   //     currentStrength = Mathf.Clamp(currentStrength, 0, maxStrength);
- //   }
+        currentStrength = Mathf.Clamp(currentStrength, 0, maxStrength);
+    }
 
     public bool isDead => currentHealth <= 0; 
 
@@ -57,12 +41,8 @@ public class PlayerHealth : MonoBehaviour
     {
         if (isDead)
         {
-            float amountToAdd = maxHealth * 1 / 3;
-            currentHealth += (int)amountToAdd;
-            
-            UpdateHealthUI();
-
-
+            currentHealth = maxHealth / 3; 
+           
         }
     }
 

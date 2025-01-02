@@ -9,14 +9,12 @@ public class package : MonoBehaviour
     public GameObject packagePanel;
     public PlayerHealth playerHealth;
 
-
     // Start is called before the first frame update
     void Start()
     {
         packagePanel.SetActive(false);
     }
-   
-    
+
     // Update is called once per frame
     void Update()
     {
