@@ -950,6 +950,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 171482291465353584, guid: 676bfc3c73dadbe4fbb071aa59a0f544, type: 3}
   m_PrefabInstance: {fileID: 171482290431516750}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1115625793 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 171482291465353585, guid: 676bfc3c73dadbe4fbb071aa59a0f544, type: 3}
+  m_PrefabInstance: {fileID: 171482290431516750}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115625787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 780eb1155c8278747bdb8cac192dfdf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1189917221
 GameObject:
   m_ObjectHideFlags: 0
@@ -2130,6 +2141,10 @@ PrefabInstance:
       propertyPath: healthbar
       value: 
       objectReference: {fileID: 921187920}
+    - target: {fileID: 2047903114815317659, guid: 676bfc3c73dadbe4fbb071aa59a0f544, type: 3}
+      propertyPath: playerCtrl
+      value: 
+      objectReference: {fileID: 1115625793}
     - target: {fileID: 2047903114815317659, guid: 676bfc3c73dadbe4fbb071aa59a0f544, type: 3}
       propertyPath: levelLoader
       value: 
