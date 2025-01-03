@@ -27,6 +27,11 @@ public class PlayerHealth : MonoBehaviour
         currentHealth += amount;
 
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        Debug.Log($"[AddHealth] 增加血量: {amount}, 當前血量: {currentHealth}/{maxHealth}");
+
+        healthbar.Sethealth(currentHealth);
+        Debug.Log($"[AddHealth] 健康條同步完成，健康條值: {healthbar}");
+        healthbar.frontHealthBar.fillAmount = (float)currentHealth / maxHealth;
     }
     public void AddStrength(int amount)
     {
