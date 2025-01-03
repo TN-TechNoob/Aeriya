@@ -183,6 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 302b018ab1dbd4641b98afe384eced65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerHealth: {fileID: 2047903114815317659}
   enemyLayers:
     serializedVersion: 2
     m_Bits: 64
