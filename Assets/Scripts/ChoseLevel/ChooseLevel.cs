@@ -63,7 +63,7 @@ public class ChooseLevel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (nearby)
+        if (nearby )
         {
             openpanel();
         }
