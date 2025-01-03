@@ -8,6 +8,9 @@ public class intializer : MonoBehaviour
     public GameObject playerdataPrefab;
     private PlayerHealth playerHealth;
 
+    private int HealUseCount = 0;
+    private const int MaxHealCount = 10;
+
     private void Awake()
     {
         if (FindObjectOfType<playerdata>() == null)
@@ -29,9 +32,15 @@ public class intializer : MonoBehaviour
       
         if (Input.GetKeyDown(KeyCode.J))
         {
+            if (HealUseCount >= MaxHealCount)
+            {
+                Debug.Log("你已經用完所有的藥水了！不能再增加血量。");
+                return;
+            }
             if (playerHealth != null)
             {
-                playerHealth.AddHealth(20); 
+                playerHealth.AddHealth(20);
+                HealUseCount++;
                 Debug.Log("觸發了 J 鍵！");
             }
             else
