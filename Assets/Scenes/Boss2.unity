@@ -959,6 +959,7 @@ GameObject:
   - component: {fileID: 1189917222}
   - component: {fileID: 1189917225}
   - component: {fileID: 1189917226}
+  - component: {fileID: 1189917228}
   - component: {fileID: 1189917227}
   m_Layer: 6
   m_Name: Boss
@@ -1090,20 +1091,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 1189917221}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1352c631599137447bda8b0d405cdda2, type: 3}
+  m_Script: {fileID: 11500000, guid: dafd00a5567ac564f9045365ab38136b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 1189917222}
+  enemy_V2: {fileID: 1189917228}
+--- !u!114 &1189917228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189917221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 014c7a1aa725c7848833a13e17f1adaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 1115625794}
+  direction: {x: 0, y: 0}
   animator: {fileID: 1189917226}
-  sprite: {fileID: 1189917222}
   player: {fileID: 1115625787}
-  speed: 1.5
+  speed: 2
   attackRange: 3
   isAttacking: 0
   isAttack_V1: 0
-  attackCoolDown: 0.5
+  attackCoolDown: 1
   attackDamage: 10
-  maxHealth: 100
+  maxHealth: 300
   healthbar: {fileID: 2044205702}
 --- !u!1 &1204970541
 GameObject:

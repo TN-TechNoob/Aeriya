@@ -974,6 +974,7 @@ GameObject:
   - component: {fileID: 1189917225}
   - component: {fileID: 1189917226}
   - component: {fileID: 1189917224}
+  - component: {fileID: 1189917227}
   m_Layer: 6
   m_Name: Boss
   m_TagString: Untagged
@@ -1061,8 +1062,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 1115625794}
+  direction: {x: 0, y: 0}
   animator: {fileID: 1189917226}
-  sprite: {fileID: 1189917222}
   player: {fileID: 1115625787}
   speed: 1.5
   attackRange: 3
@@ -1119,6 +1120,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1189917227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189917221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9777b4f7ed45c314d9c2c7fff8c3f281, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 1189917222}
+  enemy_V2: {fileID: 1189917224}
 --- !u!1 &1204970541
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,9 +5,8 @@ using UnityEngine;
 public class Enemy_V2 : MonoBehaviour
 {
     public PlayerHealth playerHealth;
-    private Vector2 direction;
+    public Vector2 direction;
     public Animator animator;
-    public SpriteRenderer sprite;
     public GameObject player;
     public float speed;
     private float distance;
@@ -29,7 +28,6 @@ public class Enemy_V2 : MonoBehaviour
 
     void Update()
     {
-        Flip();
         CalculateDistance();
 
         if (distance > attackRange && !isAttacking)
@@ -60,18 +58,6 @@ public class Enemy_V2 : MonoBehaviour
                 animator.SetTrigger("Attack_V3");
                 attackCoolDown = 0.5f;
             }
-        }
-    }
-
-    void Flip()
-    {
-        if (direction.x > 0)
-        {
-            sprite.flipX = true;
-        }
-        else
-        {
-            sprite.flipX = false;
         }
     }
 
