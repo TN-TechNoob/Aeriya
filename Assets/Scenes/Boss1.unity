@@ -1069,7 +1069,7 @@ MonoBehaviour:
   attackRange: 3
   isAttacking: 0
   isAttack_V1: 0
-  attackCoolDown: 2
+  attackCoolDown: 0.5
   attackDamage: 10
   maxHealth: 500
   healthbar: {fileID: 2044205702}

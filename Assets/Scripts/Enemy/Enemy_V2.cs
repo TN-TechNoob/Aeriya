@@ -13,7 +13,8 @@ public class Enemy_V2 : MonoBehaviour
     public float attackRange;
     public bool isAttacking;
     public bool isAttack_V1;
-    public float attackCoolDown = 0.5f;
+    public float attackCoolDown;
+    private float attackCD;
     public int attackDamage = 20;
     public int maxHealth = 100;
     int currentHealth;
@@ -23,6 +24,7 @@ public class Enemy_V2 : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        attackCD = attackCoolDown;
         healthbar.SetMaxHealth(maxHealth);
     }
 
@@ -36,27 +38,28 @@ public class Enemy_V2 : MonoBehaviour
         }
         else if (distance <= attackRange && !isAttacking)
         {
-            attackCoolDown -= Time.deltaTime;
+            attackCD -= Time.deltaTime;
             Debug.Log(distance + " " + isAttacking + " " + isAttack_V1);
             speed = 1.5f;
             int attaackSelect = Random.Range(1, 3);
             if (!isAttack_V1)
             {
                 Debug.Log(attaackSelect);
-                if (attaackSelect == 1 && attackCoolDown <= 0)
+                if (attaackSelect == 1 && attackCD <= 0)
                 {
                     animator.SetTrigger("Attack_V1");
+                    attackCD = attackCoolDown;
                 }
-                else if (attaackSelect == 2 && attackCoolDown <= 0)
+                else if (attaackSelect == 2 && attackCD <= 0)
                 {
                     animator.SetTrigger("Attack_V2");
-                    attackCoolDown = 0.5f;
+                    attackCD = attackCoolDown;
                 }
             }
             else
             {   
                 animator.SetTrigger("Attack_V3");
-                attackCoolDown = 0.5f;
+                attackCD = attackCoolDown;
             }
         }
     }
