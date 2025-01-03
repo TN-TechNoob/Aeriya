@@ -27,10 +27,10 @@ public class PlayerHealth : MonoBehaviour
         currentHealth += amount;
 
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-        Debug.Log($"[AddHealth] ¼W¥[¦å¶q: {amount}, ·í«e¦å¶q: {currentHealth}/{maxHealth}");
+        Debug.Log($"[AddHealth] ï¿½Wï¿½[ï¿½ï¿½q: {amount}, ï¿½ï¿½ï¿½eï¿½ï¿½q: {currentHealth}/{maxHealth}");
 
         healthbar.Sethealth(currentHealth);
-        Debug.Log($"[AddHealth] °·±d±ø¦P¨B§¹¦¨¡A°·±d±ø­È: {healthbar}");
+        Debug.Log($"[AddHealth] ï¿½ï¿½ï¿½dï¿½ï¿½ï¿½Pï¿½Bï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½dï¿½ï¿½ï¿½ï¿½: {healthbar}");
         healthbar.frontHealthBar.fillAmount = (float)currentHealth / maxHealth;
     }
     public void AddStrength(int amount)
@@ -105,7 +105,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Die()
     {
-        levelLoader.LoadStartMenu();
+        levelLoader.LoadHall();
         // play die animation
         // Destroy(gameObject);
     }

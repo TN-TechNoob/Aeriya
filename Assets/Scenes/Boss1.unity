@@ -1061,6 +1061,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 014c7a1aa725c7848833a13e17f1adaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelLoader: {fileID: 2019860239}
   playerHealth: {fileID: 1115625794}
   direction: {x: 0, y: 0}
   animator: {fileID: 1189917226}
@@ -2121,6 +2122,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 171482291465353585, guid: 676bfc3c73dadbe4fbb071aa59a0f544, type: 3}
+      propertyPath: levelLoader
+      value: 
+      objectReference: {fileID: 2019860239}
     - target: {fileID: 171482291465353589, guid: 676bfc3c73dadbe4fbb071aa59a0f544, type: 3}
       propertyPath: m_Name
       value: Player

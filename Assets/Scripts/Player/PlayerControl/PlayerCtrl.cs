@@ -12,6 +12,7 @@ public class PlayerCtrl : MonoBehaviour
         Shield
     }
 
+    public LevelLoader levelLoader;
     private PlayerControls playerControls;
     private Rigidbody2D rb;
     public float moveSpeed, dashSpeed;
@@ -40,6 +41,10 @@ public class PlayerCtrl : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            levelLoader.LoadStartMenu();
+        }
 
         switch (state)
         {

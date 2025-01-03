@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class ChooseLevel : MonoBehaviour
 {
+    public LevelLoader levelLoader;
     public GameObject choosePanel;
     private bool nearby = false;
 
@@ -27,14 +27,12 @@ public class ChooseLevel : MonoBehaviour
 
     public void leftLevel() 
     {
-        SceneManager.LoadScene(1);
-
+        levelLoader.LoadCustomLevel(2);
     }
 
     public void rightLevel()
     {
-       // SceneManager.LoadScene(2);
-
+       levelLoader.LoadCustomLevel(3);
     }
 
     public void closepanel() 
@@ -47,7 +45,7 @@ public class ChooseLevel : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             nearby = true;
-            Debug.Log("Player entered the trigger area."); // ´ú¸Õ¥Î
+            Debug.Log("Player entered the trigger area."); // ï¿½ï¿½ï¿½Õ¥ï¿½
         }
     }
 
@@ -57,7 +55,7 @@ public class ChooseLevel : MonoBehaviour
         {
             nearby = false;
             closepanel();
-            Debug.Log("Player left the trigger area."); // ´ú¸Õ¥Î
+            Debug.Log("Player left the trigger area."); // ï¿½ï¿½ï¿½Õ¥ï¿½
         }
     }
     // Update is called once per frame

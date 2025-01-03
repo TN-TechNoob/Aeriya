@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy_V2 : MonoBehaviour
 {
+    public LevelLoader levelLoader;
     public PlayerHealth playerHealth;
     public Vector2 direction;
     public Animator animator;
@@ -100,6 +101,7 @@ public class Enemy_V2 : MonoBehaviour
         
         GetComponent<Collider2D>().enabled = false;
         this.enabled = false;
+        levelLoader.LoadHall();
     }
 
     void CalculateDistance()
