@@ -203,9 +203,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffindicators:
-  - {fileID: 2428680921303952192}
   - {fileID: 2053783658418870911}
+  - {fileID: 2428680921303952192}
   - {fileID: 5739625953772886934}
+  buffTime: -1
   playerCtrl: {fileID: 171482291465353585}
   levelLoader: {fileID: 0}
   animator: {fileID: 171482291465353486}

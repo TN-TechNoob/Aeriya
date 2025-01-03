@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     public GameObject[] buffindicators;
-    int buffTime = -1;
+    public int buffTime = -1;
     public PlayerCtrl playerCtrl;
     public LevelLoader levelLoader;
     public Animator animator;
@@ -87,7 +87,6 @@ public class PlayerHealth : MonoBehaviour
     void BuffIndicatorEnable()
     {
         buffindicators[buffTime].SetActive(true);
-        Debug.Log(buffTime);
     }
 
     void BuffIndicatorDisable()

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy_V2 : MonoBehaviour
 {
+    public PlayerHealth playerHealth;
     private Vector2 direction;
     public Animator animator;
     public SpriteRenderer sprite;
@@ -63,7 +64,7 @@ public class Enemy_V2 : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
+        currentHealth -= (int)Mathf.Round(damage * (playerHealth.buffTime + 1.5f));
 
         healthbar.Sethealth(currentHealth);
 

@@ -58,7 +58,7 @@ public class PlayerCtrl : MonoBehaviour
 
                 if (Input.GetMouseButtonDown(1))
                 {
-                    perfectReduceTime = 2f;
+                    perfectReduceTime = 0.5f;
                     isShielding = true;
                     animator.SetBool("IsShielding", true);
                     state = State.Shield;
