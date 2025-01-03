@@ -89,7 +89,7 @@ public class PlayerHealth : MonoBehaviour
         buffindicators[buffTime].SetActive(true);
     }
 
-    void BuffIndicatorDisable()
+    public void BuffIndicatorDisable()
     {
         buffTime = -1;
         foreach(GameObject gameObject in buffindicators) 
