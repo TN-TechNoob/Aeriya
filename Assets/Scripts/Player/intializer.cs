@@ -31,7 +31,7 @@ public class intializer : MonoBehaviour
         {
             if (playerHealth != null)
             {
-                playerHealth.AddHealth(0.2f); 
+                playerHealth.AddHealth(20); 
                 Debug.Log("Ä²µo¤F J Áä¡I");
             }
             else

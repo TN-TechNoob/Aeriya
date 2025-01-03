@@ -12,6 +12,7 @@ public class HealthBar_V2 : MonoBehaviour
     public Image frontHealthBar;
     public Image backHealthBar;
 
+
     public void SetMaxHealth(int objectMaxHealth)
     {
         maxHealth = objectMaxHealth;
@@ -20,6 +21,7 @@ public class HealthBar_V2 : MonoBehaviour
 
     void Update()
     {
+        
         health = Mathf.Clamp(health, 0, maxHealth);
         UpdateHealthUI();
     }
@@ -28,6 +30,8 @@ public class HealthBar_V2 : MonoBehaviour
     {
         health = objectCurrentHealth;
         lerpTimer = 0f;
+       
+
     }
 
     public void UpdateHealthUI()
@@ -35,6 +39,7 @@ public class HealthBar_V2 : MonoBehaviour
         float fillF = frontHealthBar.fillAmount;
         float fillB = backHealthBar.fillAmount;
         float hFraction = health / maxHealth;
+      
         if (fillB > hFraction)
         {
             frontHealthBar.fillAmount = hFraction;
