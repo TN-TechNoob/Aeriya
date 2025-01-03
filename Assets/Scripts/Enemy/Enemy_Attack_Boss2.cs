@@ -7,10 +7,11 @@ public class Enemy_Attack_Boss2 : MonoBehaviour
     public Enemy_V2 enemy_V2;
     public Animator animator;
     public GameObject player;
+    public GameObject flyingSword;
+    public Transform swordSpawnPoint;
     private float distance;
     public float attackRange;
     public bool isAttacking;
-    public bool isAttack_V1;
     public float attackCoolDown;
     private float attackCD;
     public int attackDamage;
@@ -36,28 +37,30 @@ public class Enemy_Attack_Boss2 : MonoBehaviour
     public void AttackPlayerCheck()
     {
         attackCD -= Time.deltaTime;
-        Debug.Log(distance + " " + isAttacking + " " + isAttack_V1);
-        enemy_V2.speed = 1.5f;
-        int attaackSelect = Random.Range(1, 3);
-        if (!isAttack_V1)
+        Debug.Log(distance + " " + isAttacking);
+        enemy_V2.speed = 2f;
+        int attaackSelect = Random.Range(1, 4);
+        Debug.Log(attaackSelect);
+        if (attaackSelect == 1 && attackCD <= 0)
         {
-            Debug.Log(attaackSelect);
-            if (attaackSelect == 1 && attackCD <= 0)
-            {
-                animator.SetTrigger("Attack_V1");
-                attackCD = attackCoolDown;
-            }
-            else if (attaackSelect == 2 && attackCD <= 0)
-            {
-                animator.SetTrigger("Attack_V2");
-                attackCD = attackCoolDown;
-            }
-        }
-        else
-        {   
-            animator.SetTrigger("Attack_V3");
+            animator.SetTrigger("Attack_V1");
             attackCD = attackCoolDown;
         }
+        else if (attaackSelect == 2 && attackCD <= 0)
+        {
+            animator.SetTrigger("Attack_V2");
+            attackCD = attackCoolDown;
+        }
+        else if (attaackSelect == 3 && attackCD <= 0)
+        {
+            Shoot();
+            attackCD = attackCoolDown;
+        }
+    }
+
+    void Shoot()
+    {
+        Instantiate(flyingSword, swordSpawnPoint.position, Quaternion.identity);
     }
 
     public void AttackPlayer()

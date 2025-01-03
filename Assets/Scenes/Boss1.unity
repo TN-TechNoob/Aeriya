@@ -974,6 +974,7 @@ GameObject:
   - component: {fileID: 1189917225}
   - component: {fileID: 1189917226}
   - component: {fileID: 1189917224}
+  - component: {fileID: 1189917229}
   - component: {fileID: 1189917227}
   m_Layer: 6
   m_Name: Boss
@@ -1067,11 +1068,7 @@ MonoBehaviour:
   animator: {fileID: 1189917226}
   player: {fileID: 1115625787}
   speed: 1.5
-  attackRange: 3
-  isAttacking: 0
-  isAttack_V1: 0
-  attackCoolDown: 0.5
-  attackDamage: 10
+  distance: 0
   maxHealth: 500
   healthbar: {fileID: 2044205702}
 --- !u!61 &1189917225
@@ -1135,6 +1132,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 1189917222}
   enemy_V2: {fileID: 1189917224}
+--- !u!114 &1189917229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189917221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 037818ddad3f85746919eac9d3ddee08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy_V2: {fileID: 1189917224}
+  animator: {fileID: 1189917226}
+  player: {fileID: 1115625787}
+  attackRange: 3
+  isAttacking: 0
+  isAttack_V1: 0
+  attackCoolDown: 1
+  attackDamage: 10
 --- !u!1 &1204970541
 GameObject:
   m_ObjectHideFlags: 0
