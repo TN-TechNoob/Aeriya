@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerCombat_V2 : MonoBehaviour
 {
     private PlayerCtrl playerCtrl;
+    public PlayerHealth playerHealth;
     private Animator animator;
     public LayerMask enemyLayers;
     public Transform attackPoint;
@@ -39,6 +40,8 @@ public class PlayerCombat_V2 : MonoBehaviour
         foreach(Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<Enemy_V2>().TakeDamage(attackDamage);
+            playerHealth.buffTime = -1;
+            playerHealth.BuffIndicatorDisable();
         }
     }
 
