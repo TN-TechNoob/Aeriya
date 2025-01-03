@@ -1397,6 +1397,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1514521464}
   m_CullTransparentMesh: 1
+--- !u!1 &1633150159 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2053783658418870911, guid: 676bfc3c73dadbe4fbb071aa59a0f544, type: 3}
+  m_PrefabInstance: {fileID: 171482290431516750}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1700581834
 GameObject:
   m_ObjectHideFlags: 0
@@ -2071,6 +2076,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2120188269}
   m_CullTransparentMesh: 1
+--- !u!1 &2127031412 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2428680921303952192, guid: 676bfc3c73dadbe4fbb071aa59a0f544, type: 3}
+  m_PrefabInstance: {fileID: 171482290431516750}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &171482290431516750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2134,6 +2144,26 @@ PrefabInstance:
       propertyPath: levelLoader
       value: 
       objectReference: {fileID: 2019860239}
+    - target: {fileID: 2047903114815317659, guid: 676bfc3c73dadbe4fbb071aa59a0f544, type: 3}
+      propertyPath: buffindicators.Array.data[0]
+      value: 
+      objectReference: {fileID: 1633150159}
+    - target: {fileID: 2047903114815317659, guid: 676bfc3c73dadbe4fbb071aa59a0f544, type: 3}
+      propertyPath: buffindicators.Array.data[1]
+      value: 
+      objectReference: {fileID: 2127031412}
+    - target: {fileID: 2053783658418870911, guid: 676bfc3c73dadbe4fbb071aa59a0f544, type: 3}
+      propertyPath: m_Name
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2428680921303952192, guid: 676bfc3c73dadbe4fbb071aa59a0f544, type: 3}
+      propertyPath: m_Name
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5739625953772886934, guid: 676bfc3c73dadbe4fbb071aa59a0f544, type: 3}
+      propertyPath: m_Name
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 676bfc3c73dadbe4fbb071aa59a0f544, type: 3}
 --- !u!1001 &2926468803496067950

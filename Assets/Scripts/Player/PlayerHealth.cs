@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     public GameObject[] buffindicators;
-    int buffTime = 0;
+    int buffTime = -1;
     public PlayerCtrl playerCtrl;
     public LevelLoader levelLoader;
     public Animator animator;
@@ -53,7 +53,7 @@ public class PlayerHealth : MonoBehaviour
             if (playerCtrl.perfectReduceTime > 0)
             {
                 damageReduce = 1f;
-                if (buffTime < 3)
+                if (buffTime < 2)
                 {
                     buffTime ++;
                     BuffIndicatorEnable();
@@ -64,12 +64,14 @@ public class PlayerHealth : MonoBehaviour
             else
             {
                 damageReduce = 0.3f;
+                BuffIndicatorDisable();
                 animator.SetTrigger("Hurt");
             }
         }
         else
         {
             damageReduce = 0f;
+            BuffIndicatorDisable();
             animator.SetTrigger("Hurt");
         }
         currentHealth -= (int)Mathf.Round(damage * (1 - damageReduce));
@@ -84,11 +86,17 @@ public class PlayerHealth : MonoBehaviour
 
     void BuffIndicatorEnable()
     {
-        if (buffTime == 1)
-        {
-            
-        }
+        buffindicators[buffTime].SetActive(true);
         Debug.Log(buffTime);
+    }
+
+    void BuffIndicatorDisable()
+    {
+        buffTime = -1;
+        foreach(GameObject gameObject in buffindicators) 
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     void Die()
