@@ -1065,8 +1065,11 @@ MonoBehaviour:
   sprite: {fileID: 1189917222}
   player: {fileID: 1115625787}
   speed: 1.5
+  attackRange: 3
   isAttacking: 0
-  attackDamage: 25
+  isAttack_V1: 0
+  attackCoolDown: 2
+  attackDamage: 10
   maxHealth: 500
   healthbar: {fileID: 2044205702}
 --- !u!61 &1189917225
