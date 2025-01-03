@@ -64,12 +64,14 @@ public class PlayerHealth : MonoBehaviour
             else
             {
                 damageReduce = 0.3f;
+                BuffIndicatorDisable();
                 animator.SetTrigger("Hurt");
             }
         }
         else
         {
             damageReduce = 0f;
+            BuffIndicatorDisable();
             animator.SetTrigger("Hurt");
         }
         currentHealth -= (int)Mathf.Round(damage * (1 - damageReduce));
@@ -86,6 +88,15 @@ public class PlayerHealth : MonoBehaviour
     {
         buffindicators[buffTime].SetActive(true);
         Debug.Log(buffTime);
+    }
+
+    void BuffIndicatorDisable()
+    {
+        buffTime = -1;
+        foreach(GameObject gameObject in buffindicators) 
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     void Die()
