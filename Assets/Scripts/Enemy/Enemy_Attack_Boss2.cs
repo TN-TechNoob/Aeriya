@@ -34,7 +34,8 @@ public class Enemy_Attack_Boss2 : MonoBehaviour
             attackCD = attackCoolDown;
             if (swordAttackCD <= 0)
             {
-                Shoot();
+                swordAttackCD = swordAttackCoolDown;
+                animator.SetTrigger("Attack_V3");
             }
         }
         else if (distance <= attackRange && !isAttacking)
@@ -63,7 +64,6 @@ public class Enemy_Attack_Boss2 : MonoBehaviour
     void Shoot()
     {
         Instantiate(flyingSword, swordSpawnPoint.position, Quaternion.identity);
-        swordAttackCD = swordAttackCoolDown;
     }
 
     public void AttackPlayer()
