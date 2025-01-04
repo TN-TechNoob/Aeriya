@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4418969615704051063}
   - component: {fileID: 4418969615704048264}
   - component: {fileID: 4418969615704048265}
-  - component: {fileID: 4418969615704048266}
   - component: {fileID: 1141300771160087383}
   m_Layer: 0
   m_Name: FlyingSword
@@ -130,20 +129,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4418969615704048266
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4418969615704048267}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dafd00a5567ac564f9045365ab38136b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprite: {fileID: 4418969615704051063}
-  enemy_V2: {fileID: 2397389636030134264, guid: 7a5444967ae5ba24a8d89a0b1455c430, type: 3}
 --- !u!114 &1141300771160087383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,3 +141,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f6aa1704cfabdb46830a0fd8f86125c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  force: 25
+  sprite: {fileID: 4418969615704051063}

@@ -14,11 +14,14 @@ public class Enemy_Attack_Boss2 : MonoBehaviour
     public bool isAttacking;
     public float attackCoolDown;
     private float attackCD;
+    public float swordAttackCoolDown;
+    private float swordAttackCD;
     public int attackDamage;
 
     // Start is called before the first frame update
     void Start()
     {
+        swordAttackCD = swordAttackCoolDown;
         attackCD = attackCoolDown;
     }
 
@@ -26,17 +29,23 @@ public class Enemy_Attack_Boss2 : MonoBehaviour
     {
         if (enemy_V2.distance > attackRange && !isAttacking)
         {
+            swordAttackCD -= Time.deltaTime;
             enemy_V2.Chase();
+            attackCD = attackCoolDown;
+            if (swordAttackCD <= 0)
+            {
+                Shoot();
+            }
         }
         else if (distance <= attackRange && !isAttacking)
         {
+            attackCD -= Time.deltaTime;
             AttackPlayerCheck();
         }
     }
 
     public void AttackPlayerCheck()
     {
-        attackCD -= Time.deltaTime;
         Debug.Log(distance + " " + isAttacking);
         enemy_V2.speed = 2f;
         int attaackSelect = Random.Range(1, 4);
@@ -44,27 +53,22 @@ public class Enemy_Attack_Boss2 : MonoBehaviour
         if (attaackSelect == 1 && attackCD <= 0)
         {
             animator.SetTrigger("Attack_V1");
-            attackCD = attackCoolDown;
         }
         else if (attaackSelect == 2 && attackCD <= 0)
         {
             animator.SetTrigger("Attack_V2");
-            attackCD = attackCoolDown;
-        }
-        else if (attaackSelect == 3 && attackCD <= 0)
-        {
-            Shoot();
-            attackCD = attackCoolDown;
         }
     }
 
     void Shoot()
     {
         Instantiate(flyingSword, swordSpawnPoint.position, Quaternion.identity);
+        swordAttackCD = swordAttackCoolDown;
     }
 
     public void AttackPlayer()
     {
+        attackCD = attackCoolDown;
         if (distance <= attackRange)
         {
             player.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
