@@ -1069,7 +1069,7 @@ MonoBehaviour:
   player: {fileID: 1115625787}
   speed: 1.5
   distance: 0
-  maxHealth: 500
+  maxHealth: 400
   healthbar: {fileID: 2044205702}
 --- !u!61 &1189917225
 BoxCollider2D:
