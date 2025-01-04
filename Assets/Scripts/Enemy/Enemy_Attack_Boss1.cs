@@ -45,23 +45,21 @@ public class Enemy_Attack_Boss1 : MonoBehaviour
             if (attaackSelect == 1 && attackCD <= 0)
             {
                 animator.SetTrigger("Attack_V1");
-                attackCD = attackCoolDown;
             }
             else if (attaackSelect == 2 && attackCD <= 0)
             {
                 animator.SetTrigger("Attack_V2");
-                attackCD = attackCoolDown;
             }
         }
         else
         {   
             animator.SetTrigger("Attack_V3");
-            attackCD = attackCoolDown;
         }
     }
 
     public void AttackPlayer()
     {
+        attackCD = attackCoolDown;
         if (distance <= attackRange)
         {
             player.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
@@ -70,9 +68,6 @@ public class Enemy_Attack_Boss1 : MonoBehaviour
 
     public void BoostAndAttackPlayer()
     {
-        if (distance > 4)
-        {
-            enemy_V2.speed = enemy_V2.speed * 2;
-        }
+        enemy_V2.speed = enemy_V2.speed * 2;
     }
 }

@@ -1147,7 +1147,7 @@ MonoBehaviour:
   enemy_V2: {fileID: 1189917224}
   animator: {fileID: 1189917226}
   player: {fileID: 1115625787}
-  attackRange: 3
+  attackRange: 4
   isAttacking: 0
   isAttack_V1: 0
   attackCoolDown: 1
